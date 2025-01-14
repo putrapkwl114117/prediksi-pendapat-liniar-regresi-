@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Prediksi Pendapatan</title>
+          <!-- Link to Bootstrap CSS -->
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+           <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+</head>
+
+<body>
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                              <div class="navbar-nav w-100">
+                                        <div class="left-menu">
+                                                  <a class="nav-item nav-link" href="#home">Home</a>
+                                                  <a class="nav-item nav-link" href="#form">Prediksi</a>
+                                        </div>
+
+                                        <div class="mx-auto">
+                                                  <form class="d-flex">
+                                                            <input class="form-control me-2 search-input" type="search"
+                                                                      placeholder="Cari..." aria-label="Search">
+                                                            <button class="btn btn-outline-light"
+                                                                      type="submit">Cari</button>
+                                                  </form>
+                                        </div>
+
+                                        <div class="right-menu">
+                                                  <a class="nav-item nav-link" href="#about">Tentang</a>
+                                                  <a class="nav-item nav-link" href="#contact">Kontak</a>
+                                        </div>
+                              </div>
+                    </div>
+          </nav>
+
+          <!-- Hero Section with Instructions -->
+          <section class="hero-section" id="home">
+                    <h1>Selamat Datang di Prediksi Pendapatan Produk</h1>
+                    <p>Website ini membantu Anda memprediksi pendapatan dari produk berdasarkan harga, biaya, jumlah
+                              produk terjual, dan faktor lainnya. <br> Ikuti langkah-langkah di bawah ini untuk memulai
+                              prediksi pendapatan Anda.</p>
+          </section>
+
+          <!-- Instructions Section -->
+          <section id="about" class="container mt-5">
+                    <div class="row">
+                              <div class="col-12 text-center">
+                                        <h2>Cara Penggunaan</h2>
+                                        <div class="alert alert-info mt-4">
+                                                  <h4>Langkah 1: Masukkan Data Produk</h4>
+                                                  <p>Masukkan harga produk, biaya, jumlah produk terjual, diskon, dan
+                                                            estimasi hari pengiriman. Sistem akan mengolah data ini
+                                                            untuk memberikan prediksi pendapatan yang akurat.</p>
+                                        </div>
+                                        <div class="alert alert-info mt-4">
+                                                  <h4>Langkah 2: Klik 'Hitung Pendapatan'</h4>
+                                                  <p>Setelah memasukkan data, klik tombol 'Hitung Pendapatan' untuk
+                                                            mendapatkan hasil prediksi.</p>
+                                        </div>
+                              </div>
+                    </div>
+          </section>
+
+<!-- Formulir Prediksi -->
+<section id="form" class="form-container">
+          <h3 class="text-center mb-4">Formulir Prediksi Pendapatan</h3>
+
+          <form action="/predict" method="POST">
+                    <div class="mb-3">
+                              <label for="harga" class="form-label">Harga Produk</label>
+                              <input type="number" class="form-control" id="harga" name="harga" step="any"
+                                        placeholder="Masukkan harga produk" required>
+                    </div>
+                    <div class="mb-3">
+                              <label for="biaya" class="form-label">Biaya Operasional</label>
+                              <input type="number" class="form-control" id="biaya" name="biaya" step="any"
+                                        placeholder="Masukkan biaya operasional" required>
+                    </div>
+                    <div class="mb-3">
+                              <label for="produk_terjual" class="form-label">Jumlah Produk Terjual</label>
+                              <input type="number" class="form-control" id="produk_terjual" name="produk_terjual"
+                                        step="any" placeholder="Masukkan jumlah produk terjual" required>
+                    </div>
+                    <div class="mb-3">
+                              <label for="keuntungan" class="form-label">Keuntungan</label>
+                              <input type="number" class="form-control" id="keuntungan" name="keuntungan" step="any"
+                                        placeholder="Masukkan keuntungan" required>
+                    </div>
+                    <div class="mb-3">
+                              <label for="stok_barang" class="form-label">Stok Barang</label>
+                              <input type="number" class="form-control" id="stok_barang" name="stok_barang" step="any"
+                                        placeholder="Masukkan stok barang" required>
+                    </div>
+                    <div class="mb-3">
+                              <label for="diskon" class="form-label">Diskon yang Diberikan</label>
+                              <input type="number" class="form-control" id="diskon" name="diskon" step="any"
+                                        placeholder="Masukkan persentase diskon" required>
+                    </div>
+                    <div class="mb-3">
+                              <label for="hari_pengiriman" class="form-label">Hari Pengiriman</label>
+                              <input type="number" class="form-control" id="hari_pengiriman" name="hari_pengiriman"
+                                        step="any" placeholder="Masukkan jumlah hari pengiriman" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Hitung Pendapatan</button>
+          </form>
+</section>
+
+
+          <!-- Footer -->
+          <footer>
+                    <p>&copy; 2025 Prediksi Pendapatan. All Rights Reserved.</p>
+                    <p><a href="mailto:support@prediksipendapatan.com"
+                                        class="footer-link">support@prediksipendapatan.com</a> |
+                              <a href="tel:123-456-7890" class="footer-link">123-456-7890</a>
+                    </p>
+          </footer>
+
+          <!-- Link to Bootstrap JS and Popper.js -->
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
