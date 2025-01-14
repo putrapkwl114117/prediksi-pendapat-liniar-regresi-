@@ -1,1 +1,1 @@
-# prediksi-pendapat-liniar-regresi-
+# prediksi-pendapatan-liniar-regresi-
